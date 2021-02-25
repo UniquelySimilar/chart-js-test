@@ -1,28 +1,35 @@
 <template>
   <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
+    <chart-test v-if="dataReady" :chartData="chartData" />
   </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+  import ChartTest from '@/components/ChartTest'
 
-export default {
-  name: 'App',
-  components: {
-    HelloWorld
+  export default {
+    name: 'App',
+    components: {
+      ChartTest
+    },
+    data() {
+      return {
+        chartData: [12, 19, 3, 5, 2, 3],
+        dataReady: false
+      }
+    },
+    methods: {
+      getData() {
+        this.dataReady = true;
+      }
+    },
+    mounted() {
+      // Simulate API call
+      setTimeout(this.getData(), 2000);
+    }
   }
-}
 </script>
 
 <style>
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
+
 </style>
