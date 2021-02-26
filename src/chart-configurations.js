@@ -38,6 +38,30 @@ const sampleBarConfig = {
   }
 }
 
+const samplePieConfig = {
+  type: 'pie',
+  data: {
+    datasets: [{
+      data: [],
+      backgroundColor: [
+        'rgba(255, 0, 0, 0.8)',
+        'rgba(0, 255, 0, 0.8)',
+        'rgba(0, 0, 255, 0.8)',
+      ]
+    }],
+    // These labels appear in the legend and in the tooltips when hovering different arcs
+    labels: [
+      'Red',
+      'Green',
+      'Blue'
+    ]
+  },
+  options: {
+    responsive: false
+  }
+}
+
 export {
-  sampleBarConfig
+  sampleBarConfig,
+  samplePieConfig
 }

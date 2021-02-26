@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <chart-test v-if="dataReady" :chartData="chartData" />
+    <chart-test v-if="dataReady" :chartData="pieChartData" />
   </div>
 </template>
 
@@ -14,7 +14,8 @@
     },
     data() {
       return {
-        chartData: [12, 19, 3, 5, 2, 3],
+        barChartData: [12, 19, 3, 5, 2, 3],
+        pieChartData: [10, 20, 30],
         dataReady: true
       }
     },

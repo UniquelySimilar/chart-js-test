@@ -1,19 +1,19 @@
 <template>
   <div class="chart-test">
     <h3>Chart Test</h3>
-    <canvas id="chart-canvas" width="400" height="400" ref="chartref"></canvas>
+    <canvas id="chart-canvas" width="500" height="500" ref="chartref"></canvas>
   </div>
 </template>
 
 <script>
   import Chart from 'chart.js';
-  import { sampleBarConfig } from '@/chart-configurations.js'
+  import { samplePieConfig } from '@/chart-configurations.js'
 
   export default {
     data() {
       return {
         chartObj: null,
-        sampleBarConfig
+        chartConfig: samplePieConfig
       }
     },
     props: {
@@ -24,12 +24,12 @@
     },
     methods: {
       setChartData() {
-        this.sampleBarConfig.data.datasets[0].data = this.chartData;
+        this.chartConfig.data.datasets[0].data = this.chartData;
       }
     },
     mounted() {
       this.setChartData();
-      this.chartObj = new Chart(this.$refs.chartref, sampleBarConfig);
+      this.chartObj = new Chart(this.$refs.chartref, this.chartConfig);
     },
     // beforeDestroy() {
     //   // This necessary if canvas is reused for a new chart
