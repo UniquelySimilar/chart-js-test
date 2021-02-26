@@ -1,17 +1,19 @@
 <template>
   <div class="chart-test">
     <h3>Chart Test</h3>
-    <canvas id="my-chart" width="400" height="400" ref="chartref"></canvas>
+    <canvas id="chart-canvas" width="400" height="400" ref="chartref"></canvas>
   </div>
 </template>
 
 <script>
   import Chart from 'chart.js';
+  import { sampleBarConfig } from '@/chart-configurations.js'
 
   export default {
     data() {
       return {
-        myChart: null
+        chartObj: null,
+        sampleBarConfig
       }
     },
     props: {
@@ -20,43 +22,18 @@
         required: true
       }
     },
+    methods: {
+      setChartData() {
+        this.sampleBarConfig.data.datasets[0].data = this.chartData;
+      }
+    },
     mounted() {
-      this.myChart = new Chart(this.$refs.chartref, {
-        type: 'bar',
-        data: {
-          labels: ['Red', 'Blue', 'Yellow', 'Green', 'Purple', 'Orange'],
-          datasets: [{
-            label: '# of Votes',
-            data: this.chartData,
-            backgroundColor: [
-              'rgba(255, 99, 132, 0.2)',
-              'rgba(54, 162, 235, 0.2)',
-              'rgba(255, 206, 86, 0.2)',
-              'rgba(75, 192, 192, 0.2)',
-              'rgba(153, 102, 255, 0.2)',
-              'rgba(255, 159, 64, 0.2)'
-            ],
-            borderColor: [
-              'rgba(255, 99, 132, 1)',
-              'rgba(54, 162, 235, 1)',
-              'rgba(255, 206, 86, 1)',
-              'rgba(75, 192, 192, 1)',
-              'rgba(153, 102, 255, 1)',
-              'rgba(255, 159, 64, 1)'
-            ],
-            borderWidth: 1
-          }]
-        },
-        options: {
-          scales: {
-            yAxes: [{
-              ticks: {
-                beginAtZero: true
-              }
-            }]
-          }
-        }
-      });
-    }
+      this.setChartData();
+      this.chartObj = new Chart(this.$refs.chartref, sampleBarConfig);
+    },
+    // beforeDestroy() {
+    //   // This necessary if canvas is reused for a new chart
+    //   this.chartObj.destroy();
+    // }
   }
 </script>

@@ -15,7 +15,7 @@
     data() {
       return {
         chartData: [12, 19, 3, 5, 2, 3],
-        dataReady: false
+        dataReady: true
       }
     },
     methods: {
@@ -23,10 +23,10 @@
         this.dataReady = true;
       }
     },
-    mounted() {
-      // Simulate API call
-      setTimeout(this.getData(), 2000);
-    }
+    // mounted() {
+    //   // Simulate API call
+    //   setTimeout(this.getData(), 2000);
+    // }
   }
 </script>
 
