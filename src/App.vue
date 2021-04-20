@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <chart-test v-if="dataReady" :chartData="pieChartData" />
+    <chart-test v-if="dataReady" :chartData="lineChartData" />
   </div>
 </template>
 
@@ -16,7 +16,8 @@
       return {
         barChartData: [12, 19, 3, 5, 2, 3],
         pieChartData: [10, 20, 30],
-        dataReady: true
+        lineChartData: [65, 59, 80, 81, 56, 55, 40],
+        dataReady: false
       }
     },
     methods: {
@@ -24,10 +25,10 @@
         this.dataReady = true;
       }
     },
-    // mounted() {
-    //   // Simulate API call
-    //   setTimeout(this.getData(), 2000);
-    // }
+    mounted() {
+      // Simulate API call
+      setTimeout(this.getData(), 1000);
+    }
   }
 </script>
 

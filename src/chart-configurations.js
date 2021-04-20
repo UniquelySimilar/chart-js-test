@@ -61,7 +61,33 @@ const samplePieConfig = {
   }
 }
 
+const sampleLineConfig = {
+  type: 'line',
+  data: {
+    labels: [
+      'January',
+      'February',
+      'March',
+      'April',
+      'May',
+      'June',
+      'July'
+    ],
+    datasets: [{
+      label: 'Sample Dataset',
+      data: [],
+      fill: false,
+      borderColor: 'rgb(75, 192, 192)',
+      tension: 0.1
+    }]
+  },
+  options: {
+    responsive: false
+  }
+};
+
 export {
   sampleBarConfig,
-  samplePieConfig
+  samplePieConfig,
+  sampleLineConfig
 }

@@ -7,13 +7,13 @@
 
 <script>
   import Chart from 'chart.js';
-  import { samplePieConfig } from '@/chart-configurations.js'
+  import { sampleLineConfig } from '@/chart-configurations.js'
 
   export default {
     data() {
       return {
         chartObj: null,
-        chartConfig: samplePieConfig
+        chartConfig: sampleLineConfig
       }
     },
     props: {
